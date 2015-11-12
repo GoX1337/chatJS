@@ -3,6 +3,7 @@ var io = new ioServ();
 
 var msgHisto = [];
 
+// socket.io events
 io.on('connection', function (socket) {
   console.log("client connected");
 
