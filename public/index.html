@@ -43,8 +43,10 @@
                     <ul id="msgList" class="col-sm-5 list-group"></ul>
                 </div>
                 <div class="row">
-                    <input class="col-sm-4" id="msgInput">
-                    <button class="col-sm-1" onclick="send()">Send</button>
+                  <form onsubmit="send(); return false;">
+                    <input type="text" class="col-sm-4" id="msgInput">
+                    <button type="submit" class="col-sm-1">Send</button>
+                  </form> 
                </div> 
             </div>
     </div>

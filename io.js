@@ -9,7 +9,7 @@ io.on('connection', function (socket) {
 
   //send last 5 messages
   for(var i = 0; i<msgHisto.length;i++){
-      socket.broadcast.emit('msg', msgHisto[i]);
+      //socket.broadcast.emit('msg', msgHisto[i]);
   }
   
   socket.on('msg', function (data) {
@@ -19,7 +19,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('disconnect', function () {
-      console.log("client disconnect");
+      console.log("client disconnected");
   });
 });
 
