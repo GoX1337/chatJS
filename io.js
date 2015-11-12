@@ -5,7 +5,7 @@ var msgHisto = [];
 
 // socket.io events
 io.on('connection', function (socket) {
-  console.log("client connected");
+  console.log(new Date().toISOString()  + " Client connected");
 
   //send last 5 messages
   for(var i = 0; i<msgHisto.length;i++){
@@ -14,12 +14,12 @@ io.on('connection', function (socket) {
   
   socket.on('msg', function (data) {
       socket.broadcast.emit('msg', data);
-      msgHisto.push(data);
-      console.log('msg received and broadcasted : ' + data);
+      //msgHisto.push(data);
+      console.log(new Date().toISOString() + " " + data.user + ' : ' + data.val);
   });
 
   socket.on('disconnect', function () {
-      console.log("client disconnected");
+      console.log(new Date().toISOString()  + " Client disconnected");
   });
 });
 

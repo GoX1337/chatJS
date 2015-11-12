@@ -2,13 +2,23 @@ var userName = "Guest";
 
 var socket = io.connect(window.location.href);
 
+$("#userName").html(userName);
+
 socket.on('msg', function (data) {                
-   $("#msgList").append('<li class="list-group-item"><span class="label label-default">' + userName + '</span>     '+ data + '</li>');
+   $("#msgList").append('<li class="list-group-item"><span class="label label-default">' + data.user + '</span>     '+ data.val + '</li>');
 });
 
 function send(){
-    var msg = $("#msgInput").val();
+    var msg = {};
+    msg.val = $("#msgInput").val();
+    msg.user = userName;
     socket.emit('msg', msg);
-    $("#msgList").append('<li class="list-group-item"><span class="label label-default">' + userName + '</span>     '+ msg + '</li>');
+    $("#msgList").append('<li class="list-group-item"><span class="label label-default">' + msg.user + '</span>     '+ msg.val + '</li>');
     $("#msgInput").val("");
+}
+
+function closeModal(){
+    userName = $("#userNameInput").val();
+    $("#userName").html(userName);
+    $('#myModal').modal('hide');
 }

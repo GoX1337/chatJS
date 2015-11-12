@@ -13,23 +13,21 @@
         <script src="index.js"></script>
     </head>
     <body>
-        
-    
-
+          
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel">Change your username</h4>
           </div>
           <div class="modal-body">
-            ...
+             <p>Username : <input type="text" id="userNameInput"></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" onclick="closeModal()">Save</button>
           </div>
         </div>
       </div>
@@ -38,7 +36,7 @@
   <div class="container">
       <div class="grid">
             <h1>Chat</h1>
-            <a type="button" class="btn" data-toggle="modal" data-target="#myModal"></a>
+            <p>Username : <a id="userName" style="cursor: pointer;" data-toggle="modal" data-target="#myModal">Guest</a></p>
                 <div class="row">
                     <ul id="msgList" class="col-sm-5 list-group"></ul>
                 </div>
